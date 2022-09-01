@@ -64,6 +64,16 @@
         </dependency>
     </dependencies>
 
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub aakkaakkii Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/aakkaakkii/wineapp</url>
+        </repository>
+    </distributionManagement>
+
+
     <build>
         <plugins>
             <plugin>
