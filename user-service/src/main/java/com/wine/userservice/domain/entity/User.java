@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @ToString(exclude = {"city", "role"})
 @Accessors(chain = true)
 @Table(name = "users")
-public class User {
+public class User implements AbstractEntity<Long>  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
