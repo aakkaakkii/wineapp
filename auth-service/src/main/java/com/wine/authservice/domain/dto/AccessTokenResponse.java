@@ -2,8 +2,7 @@ package com.wine.authservice.domain.dto;
 
 import lombok.*;
 import lombok.experimental.Accessors;
-
-import java.util.List;
+import org.springframework.beans.factory.annotation.Value;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -11,8 +10,9 @@ import java.util.List;
 @EqualsAndHashCode()
 @ToString()
 @Accessors(chain = true)
-public class GroupDto implements AbstractDto<Long> {
-    private Long id;
-    private String name;
-    private List<PermissionDto> permissions;
+@Builder
+public class AccessTokenResponse {
+    public String accessToken;
+    public String expiresIn;
+    public String refreshToken;
 }

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Contains common CRUD operations and mapping Entity <-> Dto
+ *
  * @param <I> Type of ID field in Entity and dto
  * @param <D> Type of Dto class
  * @param <E> Type of Entity class
@@ -36,7 +37,7 @@ public abstract class AbstractService
     public abstract Class<D> getDTOClass();
 
     public D create(D entity) {
-        return modelMapper.map(repository.save(modelMapper.map(entity,this.getEntityClass())), this.getDTOClass());
+        return modelMapper.map(repository.save(modelMapper.map(entity, this.getEntityClass())), this.getDTOClass());
     }
 
     @Transactional(readOnly = true, noRollbackFor = EntityNotFoundException.class)
@@ -49,8 +50,8 @@ public abstract class AbstractService
         );
     }
 
-    public void update(D entity) {
-        repository.save(modelMapper.map(entity, this.getEntityClass()));
+    public D update(D entity) {
+        return modelMapper.map(repository.save(modelMapper.map(entity, this.getEntityClass())), this.getDTOClass());
     }
 
     public void delete(D entity) {
@@ -59,5 +60,13 @@ public abstract class AbstractService
 
     public void deleteById(I id) {
         repository.deleteById(id);
+    }
+
+    protected D convert(E entity) {
+        return modelMapper.map(entity, this.getDTOClass());
+    }
+
+    protected E convert(D entity) {
+        return modelMapper.map(entity, this.getEntityClass());
     }
 }

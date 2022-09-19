@@ -13,7 +13,7 @@ import javax.persistence.*;
 @ToString()
 @Accessors(chain = true)
 @Table(name = "permissions")
-public class Permission {
+public class Permission implements AbstractEntity<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -1,4 +1,4 @@
-package com.wine.authservice.domain.dto;
+package com.wine.authserviceapi.dto;
 
 import lombok.*;
 import lombok.experimental.Accessors;

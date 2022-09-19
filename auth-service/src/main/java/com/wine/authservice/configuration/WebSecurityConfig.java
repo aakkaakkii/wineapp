@@ -23,7 +23,10 @@ public class WebSecurityConfig {
                 .httpBasic().disable()
                 .cors().and().csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and().authorizeRequests().anyRequest().authenticated();
+                                .and()
+                .authorizeRequests()
+                .antMatchers("/**").permitAll();
+//                .and().authorizeRequests().anyRequest().authenticated();
 
         http.addFilterBefore(new JwtTokenFilter(),  UsernamePasswordAuthenticationFilter.class);
         return http.build();

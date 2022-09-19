@@ -15,7 +15,7 @@ import java.util.Set;
 @ToString()
 @Accessors(chain = true)
 @Table(name = "groups")
-public class Group {
+public class Group implements AbstractEntity<Long>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,8 +23,9 @@ public class Group {
 
 //    @ElementCollection(targetClass = Permission.class, fetch = FetchType.EAGER)
     @ManyToMany
-    @CollectionTable(name = "group_permission", joinColumns = @JoinColumn(name = "group_id"))
-    @Enumerated(EnumType.STRING)
+    @JoinTable(name = "group_permission",
+            joinColumns = { @JoinColumn(name = "group_id") },
+            inverseJoinColumns = { @JoinColumn(name = "permission_id") })
     private List<Permission> permissions;
 
     @ManyToMany(mappedBy = "groups", fetch = FetchType.LAZY)
