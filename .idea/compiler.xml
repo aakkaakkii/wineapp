@@ -18,7 +18,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="auth-service" options="-parameters" />
-      <module name="auth-service-api" options="-parameters" />
+      <module name="auth-service-api" options="" />
       <module name="user-service" options="-parameters" />
       <module name="user-service-api" options="" />
     </option>

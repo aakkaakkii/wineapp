@@ -25,7 +25,14 @@ public class WebSecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                                 .and()
                 .authorizeRequests()
-                .antMatchers("/**").permitAll();
+                .antMatchers("/rest/**").permitAll()
+                .antMatchers(
+                        "/v2/api-docs",
+                        "/swagger-ui.html",
+                        "/swagger-resources",
+                        "/swagger-resources/configuration/ui",
+                        "/swagger-resources/configuration/security")
+                .permitAll();
 //                .and().authorizeRequests().anyRequest().authenticated();
 
         http.addFilterBefore(new JwtTokenFilter(),  UsernamePasswordAuthenticationFilter.class);
