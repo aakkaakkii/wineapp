@@ -1,7 +1,7 @@
 package com.wine.authservice.service;
 
 import com.wine.authservice.domain.dto.UserDto;
-import com.wine.authservice.domain.dto.UserRegistrationRequestDto;
+import com.wine.authserviceapi.model.UserRegistrationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class RegistrationService {
     private final UserService userService;
 
-    public UserDto register(UserRegistrationRequestDto reg) {
+    public UserDto register(UserRegistrationRequest reg) {
         userService.validateUser(reg.getUsername(), reg.getMail(), reg.getPassword(), reg.getRepeatPassword());
 
         UserDto userDto = new UserDto()

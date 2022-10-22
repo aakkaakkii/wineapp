@@ -9,14 +9,19 @@ import org.springframework.stereotype.Component;
 
 @PropertySources({
         @PropertySource("classpath:application-auth-service-api.properties"),
+//        @PropertySource("classpath:application-auth-service-api-${spring.profiles.active:local}.properties")
         @PropertySource("classpath:application-auth-service-api-${spring.profiles.active:local}.properties")
 })
-@ConfigurationProperties(prefix = "user.service.api")
+@ConfigurationProperties(prefix = "auth.service.api")
 @Setter
 @Component
 @Getter
 public class AuthServiceApiProperties {
     private String host;
+
+    public String getHost() {
+        return host;
+    }
 
 
 }

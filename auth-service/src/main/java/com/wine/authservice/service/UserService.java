@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -39,12 +40,14 @@ public class UserService extends AbstractService<Long, UserDto, User, UserReposi
     @Override
     public UserDto create(UserDto entity) {
         validateUser(entity.getUsername(), entity.getEmail());
+        entity.setCreateDate(new Date().toInstant());
         entity.setPassword(passwordEncoder.encode(entity.getPassword()));
         return super.create(entity);
     }
 
     @Override
     public UserDto update(UserDto entity) {
+        validateUser(entity.getUsername(), entity.getEmail(), entity.getId());
         entity.setPassword(passwordEncoder.encode(entity.getPassword()));
         return super.update(entity);
     }
@@ -60,6 +63,16 @@ public class UserService extends AbstractService<Long, UserDto, User, UserReposi
         }
 
         if (repository.findByEmail(email) != null) {
+            throw new MailAlreadyExistsException(email);
+        }
+    }
+
+    public void validateUser(String username, String email, Long id) {
+        if (repository.findByUsernameNotEqualToId(username, id) != null) {
+            throw new UserAlreadyExistsException(username);
+        }
+
+        if (repository.findByEmailNotEqualToId(email, id) != null) {
             throw new MailAlreadyExistsException(email);
         }
     }

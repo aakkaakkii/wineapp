@@ -1,8 +1,8 @@
 package com.wine.authservice.controller;
 
-import com.wine.authservice.domain.dto.AccessTokenResponse;
-import com.wine.authservice.domain.dto.AuthenticationRequestDto;
 import com.wine.authservice.service.AuthenticationService;
+import com.wine.authserviceapi.model.AccessTokenResponse;
+import com.wine.authserviceapi.model.AuthenticationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +16,7 @@ public class AuthenticationRestController {
     private final AuthenticationService authenticationService;
 
     @PostMapping
-    public AccessTokenResponse login(@RequestBody AuthenticationRequestDto auth) {
+    public AccessTokenResponse login(@RequestBody AuthenticationRequest auth) {
         return authenticationService.login(auth);
     }
 }

@@ -1,8 +1,8 @@
 package com.wine.authservice.controller;
 
 import com.wine.authservice.domain.dto.UserDto;
-import com.wine.authservice.domain.dto.UserRegistrationRequestDto;
 import com.wine.authservice.service.RegistrationService;
+import com.wine.authserviceapi.model.UserRegistrationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +16,7 @@ public class RegistrationRestController {
     private final RegistrationService registrationService;
 
     @PostMapping
-    public UserDto register(@RequestBody UserRegistrationRequestDto reg) {
+    public UserDto register(@RequestBody UserRegistrationRequest reg) {
         return registrationService.register(reg);
     }
 

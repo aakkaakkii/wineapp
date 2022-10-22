@@ -4,7 +4,9 @@ import com.wine.authservice.controller.util.ApiPageParams;
 import com.wine.authservice.domain.dto.ListWrapper;
 import com.wine.authservice.domain.dto.UserDto;
 import com.wine.authservice.service.UserService;
+import com.wine.authserviceapi.model.UserRequest;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class UserRestController {
     private final UserService userService;
+    private final ModelMapper modelMapper;
 
     @GetMapping
     @ApiPageParams
@@ -42,13 +45,13 @@ public class UserRestController {
 //    }
 
     @PostMapping
-    public UserDto add(@RequestBody UserDto user)  {
-        return userService.create(user);
+    public UserDto add(@RequestBody UserRequest user)  {
+        return userService.create(modelMapper.map(user, UserDto.class));
     }
 
     @PutMapping("/{id}")
-    public UserDto update(@RequestBody UserDto user){
-        return userService.update(user);
+    public UserDto update(@RequestBody UserRequest user){
+        return userService.update(modelMapper.map(user, UserDto.class));
     }
 
     @DeleteMapping("/{id}")

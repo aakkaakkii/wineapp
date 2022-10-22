@@ -8,13 +8,15 @@ import feign.gson.GsonDecoder;
 import feign.gson.GsonEncoder;
 import feign.okhttp.OkHttpClient;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @RequiredArgsConstructor
 public class UserFeignConfiguration {
-    private final AuthServiceApiProperties authServiceApiProperties;
+    @Autowired
+    private AuthServiceApiProperties authServiceApiProperties;
 
     @Bean
     public UserServiceClient authenticationServiceClient() {

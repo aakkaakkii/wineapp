@@ -1,9 +1,9 @@
-package com.wine.authserviceapi.dto;
+package com.wine.authserviceapi.model;
 
 import lombok.Data;
 
 @Data
-public class ChangePasswordRequestDto {
+public class ChangePasswordRequest {
     private String username;
     private String oldPassword;
     private String newPassword;

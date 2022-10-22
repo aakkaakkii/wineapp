@@ -1,12 +1,12 @@
 package com.wine.authservice.service;
 
-import com.wine.authservice.domain.dto.AccessTokenResponse;
-import com.wine.authservice.domain.dto.AuthenticationRequestDto;
 import com.wine.authservice.domain.entity.User;
 import com.wine.authservice.exception.PasswordDontMatchException;
 import com.wine.authservice.exception.UserIsBlockedException;
 import com.wine.authservice.exception.UserIsNotActiveException;
 import com.wine.authservice.repository.UserRepository;
+import com.wine.authserviceapi.model.AccessTokenResponse;
+import com.wine.authserviceapi.model.AuthenticationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ public class AuthenticationService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public AccessTokenResponse login(AuthenticationRequestDto auth) {
+    public AccessTokenResponse login(AuthenticationRequest auth) {
         User user = userRepository.findByUsername(auth.getUsername());
 
         if (!passwordEncoder.matches(auth.getPassword(), user.getPassword())) {

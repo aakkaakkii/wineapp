@@ -1,8 +1,7 @@
-package com.wine.authservice.domain.dto;
+package com.wine.authserviceapi.model;
 
 import lombok.*;
 import lombok.experimental.Accessors;
-import org.springframework.beans.factory.annotation.Value;
 
 @AllArgsConstructor
 @NoArgsConstructor

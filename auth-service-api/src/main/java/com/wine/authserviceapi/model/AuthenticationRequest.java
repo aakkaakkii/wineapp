@@ -1,9 +1,9 @@
-package com.wine.authserviceapi.dto;
+package com.wine.authserviceapi.model;
 
 import lombok.Data;
 
 @Data
-public class AuthenticationRequestDto {
+public class AuthenticationRequest {
     private String username;
     private String password;
 }
