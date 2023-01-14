@@ -4,7 +4,7 @@ import com.wine.authservice.controller.util.ApiPageParams;
 import com.wine.authservice.domain.dto.ListWrapper;
 import com.wine.authservice.domain.dto.UserDto;
 import com.wine.authservice.service.UserService;
-import com.wine.authserviceapi.model.UserRequest;
+import com.wine.authservice.api.model.UserRequest;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;

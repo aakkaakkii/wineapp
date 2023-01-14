@@ -3,7 +3,7 @@ package com.wine.authservice.configuration;
 import com.wine.authservice.domain.dto.GroupDto;
 import com.wine.authservice.domain.dto.PermissionDto;
 import com.wine.authservice.domain.dto.UserDto;
-import com.wine.authserviceapi.model.UserRequest;
+import com.wine.authservice.api.model.UserRequest;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.AbstractConverter;
 import org.modelmapper.Converter;

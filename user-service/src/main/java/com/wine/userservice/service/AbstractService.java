@@ -50,8 +50,8 @@ public abstract class AbstractService
         );
     }
 
-    public void update(D entity) {
-        repository.save(modelMapper.map(entity, this.getEntityClass()));
+    public D update(D entity) {
+        return modelMapper.map(repository.save(modelMapper.map(entity, this.getEntityClass())), this.getDTOClass());
     }
 
     public void delete(D entity) {

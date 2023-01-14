@@ -1,8 +1,8 @@
 package com.wine.authservice.controller;
 
 import com.wine.authservice.service.AuthenticationService;
-import com.wine.authserviceapi.model.AccessTokenResponse;
-import com.wine.authserviceapi.model.AuthenticationRequest;
+import com.wine.authservice.api.model.AccessTokenResponse;
+import com.wine.authservice.api.model.AuthenticationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

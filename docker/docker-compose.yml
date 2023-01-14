@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  service:
+    image: user-service:latest
+    build:
+      dockerfile: ./Dockerfile
+      context: ../auth-service
+    ports:
+      - "8001:8081"
+    environment:
+      - S_POSTGRES_HOST=wineapp-postgres
+    depends_on:
+      - wineapp-postgres
+
+  wineapp-postgres:
+    image: postgres:12
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_MULTIPLE_DATABASES: wineapp_auth, wineapp_user
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - wineapp-postgres-volume:/var/lib/postgresql/data
+      - docker-postgresql-multiple-databases:/docker-entrypoint-initdb.d
+
+volumes:
+  wineapp-postgres-volume:
+    external: true

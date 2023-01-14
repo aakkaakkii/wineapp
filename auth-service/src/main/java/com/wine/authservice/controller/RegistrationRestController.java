@@ -2,7 +2,7 @@ package com.wine.authservice.controller;
 
 import com.wine.authservice.domain.dto.UserDto;
 import com.wine.authservice.service.RegistrationService;
-import com.wine.authserviceapi.model.UserRegistrationRequest;
+import com.wine.authservice.api.model.UserRegistrationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

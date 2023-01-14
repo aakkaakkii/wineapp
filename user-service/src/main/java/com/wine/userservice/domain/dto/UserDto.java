@@ -16,8 +16,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@EqualsAndHashCode(exclude = {"city", "role"})
-@ToString(exclude = {"city", "role"})
+@EqualsAndHashCode(exclude = {"city"})
+@ToString(exclude = {"city"})
 @Accessors(chain = true)
 public class UserDto implements AbstractDto<Long> {
     private Long id;
@@ -36,6 +36,5 @@ public class UserDto implements AbstractDto<Long> {
     private String phoneNumber;
     private CityDto city;
     private Boolean isActivated;
-    private RoleDto role;
-    private String firebaseId;
+    private Long authId;
 }

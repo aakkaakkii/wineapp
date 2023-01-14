@@ -1,7 +1,7 @@
 package com.wine.authservice.service;
 
 import com.wine.authservice.domain.dto.UserDto;
-import com.wine.authserviceapi.model.UserRegistrationRequest;
+import com.wine.authservice.api.model.UserRegistrationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

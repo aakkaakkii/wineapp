@@ -11,8 +11,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@EqualsAndHashCode(exclude = {"city", "role"})
-@ToString(exclude = {"city", "role"})
+@EqualsAndHashCode(exclude = {"city"})
+@ToString(exclude = {"city"})
 @Accessors(chain = true)
 @Table(name = "users")
 public class User implements AbstractEntity<Long>  {
@@ -35,11 +35,11 @@ public class User implements AbstractEntity<Long>  {
     @Column(name = "activated")
     private Boolean isActivated;
 
+    @Column(name = "sex")
+    private int sex;
+
     @Column(name = "created_at")
     private Instant createDate;
 
-    @JoinColumn(name = "role_id", nullable = false)
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    private Role role;
-
+    private Long authId;
 }

@@ -1,7 +1,7 @@
 package com.wine.userservice.controller;
 
 import com.wine.userservice.controller.util.ApiPageParams;
-import com.wine.userserviceapi.dto.UserResponse;
+import com.wine.userservice.api.model.UserResponse;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,7 +20,8 @@ public class UserInternalController {
     public Page<UserResponse> findUsers(@RequestParam Integer size, @RequestParam Integer page){
         final PageRequest pageRequest = PageRequest.of(page, size);
 
-        final Page<UserResponse> userResponsePage =;
-        return userResponsePage;
+//        final Page<UserResponse> userResponsePage =;
+//        return userResponsePage;
+        return null;
     }
 }
